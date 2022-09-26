@@ -6,14 +6,9 @@ public class Room {
     private Room eastRoom;
     private Room westRoom;
 
-    public Room(String name, String description, Room northRoom,
-                Room southRoom, Room eastRoom, Room westRoom){
+    public Room(String name, String description){
         this.name = name;
         this.description = description;
-        this.northRoom = northRoom;
-        this.southRoom = southRoom;
-        this.eastRoom = eastRoom;
-        this.westRoom = westRoom;
     }
 
     public String getName() {
@@ -22,5 +17,18 @@ public class Room {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setNorth(Room room){
+        this.northRoom = northRoom;
+    }
+    public void setSouth(Room room){
+        this.southRoom = southRoom;
+    }
+    public void setEast(Room room){
+        this.eastRoom = eastRoom;
+    }
+    public void setWest(Room room){
+        this.westRoom = westRoom;
     }
 }
