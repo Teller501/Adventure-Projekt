@@ -3,33 +3,34 @@ public class Adventure {
     private Room currentRoom;
     public void createRooms(){
         // Creating room objects
-        Room room1 = new Room("Road",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room2 = new Room("Room 2",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room3 = new Room("Room 3",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room4 = new Room("Room 4",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room5 = new Room("Room 5",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room6 = new Room("Room 6",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room7 = new Room("Room 7",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room8 = new Room("Room 8",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
-        Room room9 = new Room("Room 9",
-                "You are on the road outside your apartment complex," +
-                        " you are the only one around, everything is deserted");
+        Room room1 = new Room("road",
+                "you are on the road outside the city, " +
+                        "you are the only one around, everything is deserted.");
+        Room room2 = new Room("abandoned storefront",
+                "there are broken bottles everywhere, " +
+                        "but there is some chocolate bars and milk on the ground.");
+        Room room3 = new Room("garden outside the store",
+                "you are at the garden outside the store, there is an old fountain," +
+                        " it seems like there is something in the muddy water..");
+        Room room4 = new Room("road",
+                "the road continues. No sign of life, but at the side of the road, you discover a dead person" +
+                        " you walk closer to it and see that it is a dead person, who has been laying" +
+                        " there for some time now and has a picture of his family");
+        Room room5 = new Room("cellar in hotel",
+                "the cellar has a weird smell, almost like fresh made food. " +
+                        "there are boxes that belong to the bar, and a lot of ingredients for the kitchen. " +
+                        "this cellar has not been visited since the apocalypse.");
+        Room room6 = new Room("forest",
+                "ah, a lovely forest. the only place left is that still has some life in the form" +
+                        " of growing trees and plants. fresh blueberries are growing. a small well is on the tracks," +
+                        " it doesn't look that deep, but seems to continue at the bottom.");
+        Room room7 = new Room("In front of the hotel",
+                "the end of the road. a big hotel with a giant neon light half lit is in front of you. " +
+                        "the windows shattered, but sounds emerges from inside.");
+        Room room8 = new Room("hotel lobby",
+                "the lobby looks very cozy, with sofas and an old bar. ");
+        Room room9 = new Room("tunnel in the well",
+                "");
 
         // Setting directions for each room
         room1.setEast(room2);
