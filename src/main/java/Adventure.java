@@ -88,4 +88,15 @@ public class Adventure {
         return currentRoom;
     }
 
+    public void goNorth() {
+    }
+
+    public void goSouth() {
+    }
+
+    public void goEast() {
+    }
+
+    public void goWest() {
+    }
 }

@@ -12,10 +12,10 @@ public class UserInterface {
             input = keyb.nextLine().toLowerCase();
 
             switch(input){
-                case "go north" -> System.out.println("going north");
-                case "go south" -> System.out.println("going south");
-                case "go east" -> System.out.println("going east");
-                case "go west" -> System.out.println("going west");
+                case "go north" -> adventure.goNorth();
+                case "go south" -> adventure.goSouth();
+                case "go east" -> adventure.goEast();
+                case "go west" -> adventure.goWest();
                 case "look" -> System.out.println(adventure.getCurrentRoom().getName()
                         + " " + adventure.getCurrentRoom().getDescription()) ;
                 case "help" -> System.out.println("display help"); //TODO: print help commands
