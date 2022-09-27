@@ -89,36 +89,40 @@ public class Adventure {
     }
 
     public void goNorth() {
-        if (currentRoom.getNorthRoom() == null){
-            System.out.println("you can't go that way");
-        } else{
+        if (currentRoom.getNorthRoom() != null){
             currentRoom = currentRoom.getNorthRoom();
+            System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
+        } else{
+            System.out.println("you can't go that way");
         }
 
     }
 
     public void goSouth() {
-        if (currentRoom.getSouthRoom()==null) {
-
-        } else {
+        if (currentRoom.getSouthRoom()!=null) {
             currentRoom = currentRoom.getSouthRoom();
+            System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
+        } else {
+            System.out.println("you can't go that way");
         }
 
     }
 
     public void goEast() {
-        if (currentRoom.getEastRoom()==null) {
-
-        } else {
+        if (currentRoom.getEastRoom()!=null) {
             currentRoom = currentRoom.getEastRoom();
+            System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
+        } else {
+            System.out.println("you can't go that way");
         }
     }
 
     public void goWest() {
-        if (currentRoom.getWestRoom()==null) {
-
-        } else {
+        if (currentRoom.getWestRoom()!=null) {
             currentRoom = currentRoom.getWestRoom();
+            System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
+        } else {
+            System.out.println("you can't go that way");
         }
     }
 }

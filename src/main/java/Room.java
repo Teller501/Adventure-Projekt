@@ -20,16 +20,16 @@ public class Room {
     }
 
     public void setNorth(Room room){
-        this.northRoom = northRoom;
+        this.northRoom = room;
     }
     public void setSouth(Room room){
-        this.southRoom = southRoom;
+        this.southRoom = room;
     }
     public void setEast(Room room){
-        this.eastRoom = eastRoom;
+        this.eastRoom = room;
     }
     public void setWest(Room room){
-        this.westRoom = westRoom;
+        this.westRoom = room;
     }
 
     public Room getNorthRoom() {
