@@ -6,34 +6,34 @@ public class Adventure {
         Room room1 = new Room("Road",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room2 = new Room("Road",
+        Room room2 = new Room("Room 2",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room3 = new Room("Road",
+        Room room3 = new Room("Room 3",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room4 = new Room("Road",
+        Room room4 = new Room("Room 4",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room5 = new Room("Road",
+        Room room5 = new Room("Room 5",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room6 = new Room("Road",
+        Room room6 = new Room("Room 6",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room7 = new Room("Road",
+        Room room7 = new Room("Room 7",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room8 = new Room("Road",
+        Room room8 = new Room("Room 8",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
-        Room room9 = new Room("Road",
+        Room room9 = new Room("Room 9",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
 
         // Setting directions for each room
         room1.setEast(room2);
-        room1.setSouth(room2);
+        room1.setSouth(room4);
         room1.setNorth(null);
         room1.setWest(null);
 
@@ -89,6 +89,11 @@ public class Adventure {
     }
 
     public void goNorth() {
+        if (currentRoom.getNorthRoom() == null){
+            System.out.println("you can't go that way");
+        } else{
+            currentRoom = currentRoom.getNorthRoom();
+        }
 
     }
 
