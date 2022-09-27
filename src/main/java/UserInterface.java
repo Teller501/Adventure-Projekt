@@ -12,10 +12,38 @@ public class UserInterface {
             input = keyb.nextLine().toLowerCase();
 
             switch(input){
-                case "go north" -> adventure.goNorth();
-                case "go south" -> adventure.goSouth();
-                case "go east" -> adventure.goEast();
-                case "go west" -> adventure.goWest();
+                case "go north" -> {
+                    if (adventure.goNorth()){
+                        System.out.println(adventure.getCurrentRoom().getName()
+                                + " " + adventure.getCurrentRoom().getDescription());
+                    }else{
+                        System.out.println("you cannot go that way");
+                    }
+                }
+                case "go south" -> {
+                    if (adventure.goSouth()){
+                        System.out.println(adventure.getCurrentRoom().getName()
+                                + " " + adventure.getCurrentRoom().getDescription());
+                    }else{
+                        System.out.println("you cannot go that way");
+                    }
+                }
+                case "go east" -> {
+                    if (adventure.goEast()){
+                        System.out.println(adventure.getCurrentRoom().getName()
+                                + " " + adventure.getCurrentRoom().getDescription());
+                    }else{
+                        System.out.println("you cannot go that way");
+                    }
+                }
+                case "go west" -> {
+                    if (adventure.goWest()){
+                        System.out.println(adventure.getCurrentRoom().getName()
+                                + " " + adventure.getCurrentRoom().getDescription());
+                    }else{
+                        System.out.println("you cannot go that way");
+                    }
+                }
                 case "look" -> System.out.println(adventure.getCurrentRoom().getName()
                         + " " + adventure.getCurrentRoom().getDescription()) ;
                 case "help" -> System.out.println("display help"); //TODO: print help commands
