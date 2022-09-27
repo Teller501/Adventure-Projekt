@@ -89,14 +89,31 @@ public class Adventure {
     }
 
     public void goNorth() {
+
     }
 
     public void goSouth() {
+        if (currentRoom.getSouthRoom()==null) {
+
+        } else {
+            currentRoom = currentRoom.getSouthRoom();
+        }
+
     }
 
     public void goEast() {
+        if (currentRoom.getEastRoom()==null) {
+
+        } else {
+            currentRoom = currentRoom.getEastRoom();
+        }
     }
 
     public void goWest() {
+        if (currentRoom.getWestRoom()==null) {
+
+        } else {
+            currentRoom = currentRoom.getWestRoom();
+        }
     }
 }
