@@ -89,6 +89,11 @@ public class Adventure {
     }
 
     public void goNorth() {
+        if (currentRoom.getNorthRoom() == null){
+            System.out.println("you can't go that way");
+        } else{
+            currentRoom = currentRoom.getNorthRoom();
+        }
     }
 
     public void goSouth() {
