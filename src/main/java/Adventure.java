@@ -33,7 +33,7 @@ public class Adventure {
 
         // Setting directions for each room
         room1.setEast(room2);
-        room1.setSouth(room2);
+        room1.setSouth(room4);
         room1.setNorth(null);
         room1.setWest(null);
 
