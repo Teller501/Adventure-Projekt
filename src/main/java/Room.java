@@ -31,4 +31,20 @@ public class Room {
     public void setWest(Room room){
         this.westRoom = westRoom;
     }
+
+    public Room getNorthRoom() {
+        return northRoom;
+    }
+
+    public Room getSouthRoom() {
+        return southRoom;
+    }
+
+    public Room getWestRoom() {
+        return westRoom;
+    }
+
+    public Room getEastRoom() {
+        return eastRoom;
+    }
 }
