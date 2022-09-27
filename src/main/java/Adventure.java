@@ -34,33 +34,53 @@ public class Adventure {
         // Setting directions for each room
         room1.setEast(room2);
         room1.setSouth(room2);
+        room1.setNorth(null);
+        room1.setWest(null);
 
         room2.setWest(room1);
         room2.setEast(room3);
+        room2.setNorth(null);
+        room3.setSouth(null);
 
         room3.setWest(room2);
         room3.setSouth(room6);
+        room3.setNorth(null);
+        room3.setEast(null);
 
         room4.setNorth(room1);
         room4.setSouth(room7);
+        room4.setNorth(null);
+        room4.setWest(null);
+
 
         room5.setSouth(room8);
+        room5.setEast(null);
+        room5.setNorth(null);
+        room5.setWest(null);
 
         room6.setNorth(room3);
         room6.setSouth(room9);
+        room6.setWest(null);
+        room6.setEast(null);
 
         room7.setNorth(room4);
         room7.setEast(room8);
+        room7.setWest(null);
+        room7.setSouth(null);
 
         room8.setWest(room7);
         room8.setNorth(room5);
         room8.setEast(room9);
+        room8.setSouth(null);
 
         room9.setWest(room8);
         room9.setNorth(room6);
+        room9.setEast(null);
+        room9.setSouth(null);
 
         // Setting currentRoom to room1 at the start
         currentRoom = room1;
+
     }
 
     // Getting current room
