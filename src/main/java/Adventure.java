@@ -93,7 +93,7 @@ public class Adventure {
             currentRoom = currentRoom.getNorthRoom();
             System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
         } else{
-            System.out.println("you can't go that way");
+            System.out.println("you cannot go that way");
         }
 
     }
@@ -103,7 +103,7 @@ public class Adventure {
             currentRoom = currentRoom.getSouthRoom();
             System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
         } else {
-            System.out.println("you can't go that way");
+            System.out.println("you cannot go that way");
         }
 
     }
@@ -113,7 +113,7 @@ public class Adventure {
             currentRoom = currentRoom.getEastRoom();
             System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
         } else {
-            System.out.println("you can't go that way");
+            System.out.println("you cannot go that way");
         }
     }
 
@@ -122,7 +122,7 @@ public class Adventure {
             currentRoom = currentRoom.getWestRoom();
             System.out.println(getCurrentRoom().getName() + getCurrentRoom().getDescription());
         } else {
-            System.out.println("you can't go that way");
+            System.out.println("you cannot go that way");
         }
     }
 }
