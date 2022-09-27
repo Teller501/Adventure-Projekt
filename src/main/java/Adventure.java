@@ -2,6 +2,7 @@ public class Adventure {
 
     private Room currentRoom;
     public void createRooms(){
+        // Creating room objects
         Room room1 = new Room("Road",
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
@@ -30,6 +31,7 @@ public class Adventure {
                 "You are on the road outside your apartment complex," +
                         " you are the only one around, everything is deserted");
 
+        // Setting directions for each room
         room1.setEast(room2);
         room1.setSouth(room2);
 
@@ -57,9 +59,11 @@ public class Adventure {
         room9.setWest(room8);
         room9.setNorth(room6);
 
+        // Setting currentRoom to room1 at the start
         currentRoom = room1;
     }
 
+    // Getting current room
     public Room getCurrentRoom() {
         return currentRoom;
     }
