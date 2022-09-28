@@ -5,8 +5,9 @@ public class UserInterface {
 
 
     Scanner keyb = new Scanner(System.in).useLocale(Locale.ENGLISH);
-    Adventure adventure = new Adventure();
+    Adventure adventure;
     public void start() {
+        adventure = new Adventure();
         System.out.println("""
                 ______            _                _                       _____  _____ _____ _____\s
                 |  ___|          | |              | |                     / __  \\|  _  |  ___|  _  |
@@ -25,35 +26,34 @@ public class UserInterface {
                 type 'help' for a list of commands to start
                 """);
 
-        adventure.createRooms();
         String input = "";
 
         while(!input.equals("exit")){
             input = keyb.nextLine().toLowerCase();
 
             switch(input){
-                case "go north" -> {
+                case "north" -> {
                     if (adventure.goNorth()){
                         System.out.println("going north");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "go south" -> {
+                case "south" -> {
                     if (adventure.goSouth()){
                         System.out.println("going south");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "go east" -> {
+                case "east" -> {
                     if (adventure.goEast()){
                         System.out.println("going east");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "go west" -> {
+                case "west" -> {
                     if (adventure.goWest()){
                         System.out.println("going west");
                     }else{
