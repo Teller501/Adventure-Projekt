@@ -28,6 +28,10 @@ public class UserInterface {
 
         String input = "";
 
+        handleInput(input);
+    }
+
+    public void handleInput(String input) {
         while(!input.equals("exit")){
             input = keyb.nextLine().toLowerCase();
 
