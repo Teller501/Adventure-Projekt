@@ -1,53 +1,19 @@
 public class Adventure {
 
-    private Room currentRoom;
-    private Map map;
+    private Map map = new Map();
+    private Player player;
 
     public Adventure(){
         map.createMap();
+        player = new Player();
+        player.setCurrentRoom(map.getStarterRoom());
     }
 
-    // Getting current room
-    public Room getCurrentRoom() {
-        return map.getStarterRoom();
+    public Room getCurrentRoom(){
+        return player.getCurrentRoom();
     }
 
-    public boolean goNorth() {
-        if (currentRoom.getNorthRoom() != null){
-            currentRoom = currentRoom.getNorthRoom();
-            return true;
-        } else{
-            return false;
-        }
-
-    }
-
-    public boolean goSouth() {
-        if (currentRoom.getSouthRoom()!=null) {
-            currentRoom = currentRoom.getSouthRoom();
-            return true;
-        } else {
-            System.out.println("you can't go that way");
-            return false;
-        }
-
-    }
-
-    public boolean goEast() {
-        if (currentRoom.getEastRoom()!=null) {
-            currentRoom = currentRoom.getEastRoom();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean goWest() {
-        if (currentRoom.getWestRoom()!=null) {
-            currentRoom = currentRoom.getWestRoom();
-            return true;
-        } else {
-            return false;
-        }
+    public boolean go(String direction){
+        return player.move(direction);
     }
 }

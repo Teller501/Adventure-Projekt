@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class UserInterface {
 
 
-    Scanner keyb = new Scanner(System.in).useLocale(Locale.ENGLISH);
-    Adventure adventure;
+    private Scanner keyb = new Scanner(System.in).useLocale(Locale.ENGLISH);
+    private Adventure adventure;
     public void start() {
         adventure = new Adventure();
         System.out.println("""
@@ -32,38 +32,46 @@ public class UserInterface {
             input = keyb.nextLine().toLowerCase();
 
             switch(input){
-                case "north" -> {
-                    if (adventure.goNorth()){
+                case "north", "n" -> {
+                    if (adventure.go("north")){
                         System.out.println("going north");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "south" -> {
-                    if (adventure.goSouth()){
+                case "south", "s" -> {
+                    if (adventure.go("south")){
                         System.out.println("going south");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "east" -> {
-                    if (adventure.goEast()){
+                case "east","e" -> {
+                    if (adventure.go("east")){
                         System.out.println("going east");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "west" -> {
-                    if (adventure.goWest()){
+                case "west","w" -> {
+                    if (adventure.go("west")){
                         System.out.println("going west");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "look" -> System.out.println(adventure.getCurrentRoom().getName()
-                        + " " + adventure.getCurrentRoom().getDescription());
-                case "help" -> {
-                    System.out.println("""
+                case "look" -> System.out.println(adventure.getCurrentRoom().getName());
+                case "help" -> showHelp();
+                case "exit" -> {
+                    System.out.println("exiting program");
+                    System.exit(1);
+                }
+            }
+        }
+    }
+
+    public void showHelp(){
+        System.out.println("""
                             type 'go north' to go north
                             type 'go south' to go south
                             type 'go east' to go east
@@ -73,12 +81,5 @@ public class UserInterface {
                             type 'help' to display commands
                             type 'exit' to exit game
                             """);
-                }
-                case "exit" -> {
-                    System.out.println("exiting program");
-                    System.exit(1);
-                }
-            }
-        }
     }
 }
