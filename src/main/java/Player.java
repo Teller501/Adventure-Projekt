@@ -42,5 +42,16 @@ public class Player {
     }
 
 
+    // method for removing item from player inventory, looping through the playerInventory
+    public Item removeItem(String name){
+        for (Item item : playerInventory){
+            if (item.getName().equals(name)){
+                playerInventory.remove(item);
+                return item;
+            }
+            return item;
+        }
+        return null;
+    }
 
 }

@@ -66,6 +66,16 @@ public class UserInterface {
                     }
                 }
 
+                // take method, that first removes the item from the room, then adds it to player inventory
+                case "take" -> {
+                    Item itemPickedUp = adventure.getPlayer().getCurrentRoom().removeItem(input);
+                    if (itemPickedUp == null){
+                        System.out.println("no such item..");
+                    } else {
+                        System.out.println("you picked up " + itemPickedUp.getName());
+                        adventure.getPlayer().addItem(itemPickedUp);
+                    }
+                }
 
                 case "look" -> System.out.println(adventure.getCurrentRoom().getName() // TODO: write a better look case
                         + " " + adventure.getCurrentRoom().getRoomItems());

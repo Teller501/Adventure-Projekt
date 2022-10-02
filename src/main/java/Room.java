@@ -61,4 +61,16 @@ public class Room {
         return roomItems;
     }
 
+    // method for removing item from room inventory, looping through the roomItems
+    public Item removeItem(String name){
+        for (Item item : roomItems){
+            if (item.getName().equals(name)){
+                roomItems.remove(item);
+                return item;
+            }
+            return item;
+        }
+        return null;
+    }
+
 }
