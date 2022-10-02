@@ -84,6 +84,26 @@ public class UserInterface {
                     }
                 }
 
+                // method for dropping the item, adding the item to the current room
+                case "drop" -> {
+                    Item itemDropped = adventure.getPlayer().removeItem(direction);
+                    if (itemDropped == null){
+                        System.out.println("no such item...");
+                    } else {
+                        System.out.println("you have dropped " + itemDropped);
+                        adventure.getPlayer().getCurrentRoom().addItem(itemDropped);
+                    }
+                }
+
+                // method for printing players current items they are holding
+                case "inventory", "inv" -> {
+                    if (adventure.getPlayer().getPlayerInventory().isEmpty()){
+                        System.out.println("you are currenlty holding nothing...");
+                    }else{
+                        System.out.println("you are currently holding " + adventure.getPlayer().getPlayerInventory());
+                    }
+                }
+
                 case "look" -> System.out.println(adventure.getCurrentRoom().getName() // TODO: write a better look case
                         + " " + adventure.getPlayer().getCurrentRoom().getRoomItems());
                 case "help" -> showHelp(); // Showing list of commands

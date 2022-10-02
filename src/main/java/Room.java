@@ -52,8 +52,12 @@ public class Room {
         return eastRoom;
     }
 
-    public void createItem(String name){
+    public void createItem(String name, String description){
         Item item = new Item(name, description);
+        roomItems.add(item);
+    }
+
+    public void addItem(Item item){
         roomItems.add(item);
     }
 

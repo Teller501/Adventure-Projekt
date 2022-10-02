@@ -42,9 +42,9 @@ public class Map {
         // Room2
         room2.setWest(room1);
         room2.setEast(room3);
-        room2.createItem("knife");
-        room2.createItem("chocolate");
-        room2.createItem("beer");
+        room2.createItem("knife", "sharp knife");
+        room2.createItem("chocolate", "delicious milk chocolate");
+        room2.createItem("beer", "it's not very cold.." );
 
         // Room3
         room3.setWest(room2);
@@ -53,7 +53,7 @@ public class Map {
         // Room4
         room4.setNorth(room1);
         room4.setSouth(room7);
-        room4.createItem("knife");
+        room4.createItem("knife", "small sharp knife");
 
         // Room5
         room5.setSouth(room8);
@@ -62,8 +62,8 @@ public class Map {
         // Room6
         room6.setNorth(room3);
         room6.setSouth(room9);
-        room6.createItem("test"); // Test Items
-        room6.createItem("test 2"); // Test Items
+        room6.createItem("test", "test "); // Test Items
+        room6.createItem("test 2", "test 2"); // Test Items
 
         // Room 7
         room7.setNorth(room4);
