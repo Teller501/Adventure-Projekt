@@ -39,34 +39,42 @@ public class Map {
         room1.setEast(room2);
         room1.setSouth(room4);
 
+        // Room2
         room2.setWest(room1);
         room2.setEast(room3);
         room2.createItem("knife");
         room2.createItem("chocolate");
         room2.createItem("beer");
 
+        // Room3
         room3.setWest(room2);
         room3.setSouth(room6);
 
+        // Room4
         room4.setNorth(room1);
         room4.setSouth(room7);
         room4.createItem("knife");
 
+        // Room5
         room5.setSouth(room8);
 
 
+        // Room6
         room6.setNorth(room3);
         room6.setSouth(room9);
-        room6.createItem("test");
-        room6.createItem("test 2");
+        room6.createItem("test"); // Test Items
+        room6.createItem("test 2"); // Test Items
 
+        // Room 7
         room7.setNorth(room4);
         room7.setEast(room8);
 
+        // Room 8
         room8.setWest(room7);
         room8.setNorth(room5);
         room8.setEast(room9);
 
+        // Room 9
         room9.setWest(room8);
         room9.setNorth(room6);
 

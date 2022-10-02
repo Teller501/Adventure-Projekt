@@ -31,12 +31,13 @@ public class UserInterface {
         handleInput(input);
     }
 
+    // Method for handling all input from user
     public void handleInput(String input) {
         while(!input.equals("exit")){
             input = keyb.nextLine().toLowerCase();
 
             switch(input){
-                case "north", "n" -> {
+                case "north", "n" -> { // Case for going north
                     if (adventure.go("north")){
                         System.out.println("going north");
                     }else{
@@ -44,29 +45,31 @@ public class UserInterface {
                     }
                 }
                 case "south", "s" -> {
-                    if (adventure.go("south")){
+                    if (adventure.go("south")){ // Case for going south
                         System.out.println("going south");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "east","e" -> {
+                case "east","e" -> { // Case for going east
                     if (adventure.go("east")){
                         System.out.println("going east");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "west","w" -> {
+                case "west","w" -> { // Case for going west
                     if (adventure.go("west")){
                         System.out.println("going west");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "look" -> System.out.println(adventure.getCurrentRoom().getName()
+
+
+                case "look" -> System.out.println(adventure.getCurrentRoom().getName() // TODO: write a better look case
                         + " " + adventure.getCurrentRoom().getRoomItems());
-                case "help" -> showHelp();
+                case "help" -> showHelp(); // Showing list of commands
                 case "exit" -> {
                     System.out.println("exiting program");
                     System.exit(1);
