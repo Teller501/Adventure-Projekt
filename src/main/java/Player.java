@@ -49,7 +49,6 @@ public class Player {
                 playerInventory.remove(item);
                 return item;
             }
-            return item;
         }
         return null;
     }

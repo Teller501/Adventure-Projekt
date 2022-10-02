@@ -35,31 +35,38 @@ public class UserInterface {
     public void handleInput(String input) {
         while(!input.equals("exit")){
             input = keyb.nextLine().toLowerCase();
+            String[] inputSplit = input.split(" ");
+            String direction = "";
+            String command = inputSplit[0];
 
-            switch(input){
-                case "north", "n" -> { // Case for going north
-                    if (adventure.go("north")){
+            if (inputSplit.length > 1){
+                direction = inputSplit[1];
+            }
+
+            switch(command){
+                case "go north", "n" -> { // Case for going north
+                    if (adventure.go("n")){
                         System.out.println("going north");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "south", "s" -> {
-                    if (adventure.go("south")){ // Case for going south
+                case "go south", "s" -> {
+                    if (adventure.go("s")){ // Case for going south
                         System.out.println("going south");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "east","e" -> { // Case for going east
-                    if (adventure.go("east")){
+                case "go east","e" -> { // Case for going east
+                    if (adventure.go("e")){
                         System.out.println("going east");
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "west","w" -> { // Case for going west
-                    if (adventure.go("west")){
+                case "go west","w" -> { // Case for going west
+                    if (adventure.go("w")){
                         System.out.println("going west");
                     }else{
                         System.out.println("you cannot go that way");
@@ -68,7 +75,7 @@ public class UserInterface {
 
                 // take method, that first removes the item from the room, then adds it to player inventory
                 case "take" -> {
-                    Item itemPickedUp = adventure.getPlayer().getCurrentRoom().removeItem(input);
+                    Item itemPickedUp = adventure.getPlayer().getCurrentRoom().removeItem(direction);
                     if (itemPickedUp == null){
                         System.out.println("no such item..");
                     } else {
@@ -78,11 +85,14 @@ public class UserInterface {
                 }
 
                 case "look" -> System.out.println(adventure.getCurrentRoom().getName() // TODO: write a better look case
-                        + " " + adventure.getCurrentRoom().getRoomItems());
+                        + " " + adventure.getPlayer().getCurrentRoom().getRoomItems());
                 case "help" -> showHelp(); // Showing list of commands
                 case "exit" -> {
                     System.out.println("exiting program");
                     System.exit(1);
+                }
+                default -> {
+                    System.out.println("unknown command.. type 'help' for list of commands");
                 }
             }
         }

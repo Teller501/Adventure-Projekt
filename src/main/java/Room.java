@@ -68,7 +68,6 @@ public class Room {
                 roomItems.remove(item);
                 return item;
             }
-            return item;
         }
         return null;
     }
