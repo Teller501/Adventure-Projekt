@@ -8,7 +8,7 @@ public class Room {
     private Room eastRoom;
     private Room westRoom;
 
-    private ArrayList <Item> roomItems;
+    private ArrayList <Item> roomItems = new ArrayList<>();
 
     public Room(String name, String description){
         this.name = name;
@@ -52,7 +52,13 @@ public class Room {
         return eastRoom;
     }
 
-    public ArrayList<Item> addItem(Item item){
+    public void createItem(String name){
+        Item item = new Item(name, description);
+        roomItems.add(item);
+    }
+
+    public ArrayList<Item> getRoomItems(){
         return roomItems;
     }
+
 }

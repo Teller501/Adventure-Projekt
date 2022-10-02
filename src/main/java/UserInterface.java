@@ -64,7 +64,8 @@ public class UserInterface {
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "look" -> System.out.println(adventure.getCurrentRoom().getName());
+                case "look" -> System.out.println(adventure.getCurrentRoom().getName()
+                        + " " + adventure.getCurrentRoom().getRoomItems());
                 case "help" -> showHelp();
                 case "exit" -> {
                     System.out.println("exiting program");

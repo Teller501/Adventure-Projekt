@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Map {
 
     private Room starterRoom;
@@ -39,18 +41,24 @@ public class Map {
 
         room2.setWest(room1);
         room2.setEast(room3);
+        room2.createItem("knife");
+        room2.createItem("chocolate");
+        room2.createItem("beer");
 
         room3.setWest(room2);
         room3.setSouth(room6);
 
         room4.setNorth(room1);
         room4.setSouth(room7);
+        room4.createItem("knife");
 
         room5.setSouth(room8);
 
 
         room6.setNorth(room3);
         room6.setSouth(room9);
+        room6.createItem("test");
+        room6.createItem("test 2");
 
         room7.setNorth(room4);
         room7.setEast(room8);
@@ -70,4 +78,5 @@ public class Map {
     public Room getStarterRoom() {
         return starterRoom;
     }
+
 }
