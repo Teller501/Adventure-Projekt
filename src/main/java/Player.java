@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 public class Player {
 
     private Room currentRoom;
+    private ArrayList<Item> playerInventory = new ArrayList<>();
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -30,5 +33,14 @@ public class Player {
             return false;
         }
     }
+
+    public ArrayList<Item> getPlayerInventory() {
+        return playerInventory;
+    }
+    public void addItem(Item item){
+        playerInventory.add(item);
+    }
+
+
 
 }
