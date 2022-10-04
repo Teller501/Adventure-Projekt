@@ -101,7 +101,10 @@ public class UserInterface {
                     if (adventure.getPlayer().getPlayerInventory().isEmpty()){
                         System.out.println("you are currenlty holding nothing...");
                     }else{
-                        System.out.println("you are currently holding " + adventure.getPlayer().getPlayerInventory());
+                        System.out.println("you are currently holding: ");
+                        for (Item item : adventure.getPlayer().getPlayerInventory()){
+                            System.out.println(item.getName() + ", " + item.getDescription());
+                        }
                     }
                 }
 
