@@ -44,6 +44,7 @@ public class UserInterface {
             }
 
             switch(command){
+                // TODO: fix input when typing 'go direction'
                 case "go north", "n" -> { // Case for going north
                     if (adventure.go("n")){
                         System.out.println("going north");
@@ -107,6 +108,8 @@ public class UserInterface {
                 case "health", "hp" -> {
                     System.out.println("you currently have " + adventure.getPlayer().getHealth() + " hp");
                 }
+
+                case "eat" ->{} // TODO: create eat function in Player
 
                 case "look" -> System.out.println(adventure.getCurrentRoom().getName() // TODO: write a better look case
                         + " " + adventure.getPlayer().getCurrentRoom().getRoomItems());
