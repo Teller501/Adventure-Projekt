@@ -57,6 +57,11 @@ public class Room {
         addItem(item);
     }
 
+    public void createFood(String name, String description, double healthPoints){
+        Food food = new Food(name,description,healthPoints);
+        addItem(food);
+    }
+
     public void addItem(Item item){
         roomItems.add(item);
     }

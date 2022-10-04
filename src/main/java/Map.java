@@ -43,8 +43,8 @@ public class Map {
         room2.setWest(room1);
         room2.setEast(room3);
         room2.createItem("knife", "sharp knife");
-        room2.createItem("chocolate", "delicious milk chocolate");
-        room2.createItem("beer", "it's not very cold.." );
+        room2.createFood("chocolate", "delicious milk chocolate, might be bad for you..",-8);
+        room2.createFood("beer", "it's not very cold, looks old..", -12);
 
         // Room3
         room3.setWest(room2);
