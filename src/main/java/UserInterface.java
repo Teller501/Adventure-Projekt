@@ -128,13 +128,18 @@ public class UserInterface {
 
     public void showHelp(){
         System.out.println("""
-                            type 'go north' to go north
-                            type 'go south' to go south
-                            type 'go east' to go east
-                            type 'go west' to go west
+                            type 'go north' or 'n' to go north
+                            type 'go south' or 's' to go south
+                            type 'go east' or 'e' to go east
+                            type 'go west' or 'w' to go west
+                            
+                            type 'take itemname' to pickup item
+                            type 'drop itemname' to drop item
+                            type 'eat itemname' to eat item if eatable
                             
                             type 'look' to get a description of your sorroundings
                             type 'help' to display commands
+                            type 'health' or 'hp' to display your health
                             type 'exit' to exit game
                             """);
     }
