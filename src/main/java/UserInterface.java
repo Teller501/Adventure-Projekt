@@ -104,8 +104,13 @@ public class UserInterface {
                     }
                 }
 
+                case "health", "hp" -> {
+                    System.out.println("you currently have " + adventure.getPlayer().getHealth() + " hp");
+                }
+
                 case "look" -> System.out.println(adventure.getCurrentRoom().getName() // TODO: write a better look case
                         + " " + adventure.getPlayer().getCurrentRoom().getRoomItems());
+
                 case "help" -> showHelp(); // Showing list of commands
                 case "exit" -> {
                     System.out.println("exiting program");

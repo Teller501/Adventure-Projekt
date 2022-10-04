@@ -54,7 +54,7 @@ public class Room {
 
     public void createItem(String name, String description){
         Item item = new Item(name, description);
-        roomItems.add(item);
+        addItem(item);
     }
 
     public void addItem(Item item){

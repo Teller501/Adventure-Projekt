@@ -4,6 +4,16 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
+    private double health;
+    private final double maxHealth = 50;
+
+    public Player(double health){
+        this.health = health;
+    }
+
+    public double getHealth() {
+        return health;
+    }
 
     public Room getCurrentRoom() {
         return currentRoom;

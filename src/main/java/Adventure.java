@@ -6,7 +6,7 @@ public class Adventure {
     // Adventure constructer, creating the map, player, and setting players currentRoom to starterRoom
     public Adventure(){
         map.createMap();
-        player = new Player();
+        player = new Player(50);
         player.setCurrentRoom(map.getStarterRoom());
     }
 
