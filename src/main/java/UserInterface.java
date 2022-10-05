@@ -96,17 +96,18 @@ public class UserInterface {
                     ReturnMessage result = adventure.playerEat(userChoice);
                     switch(result){
                         case OK:
-                            System.out.println("Player has eaten " + userChoice);
+                            System.out.println("you eat " + userChoice);
+                            System.out.println("your health is now at " + adventure.getPlayer().getHealth());
                             break;
                         case CANT:
-                            System.out.println("This item cannot be eaten " + userChoice);
+                            System.out.println(userChoice + " cannot be eaten ");
                             break;
                         case NOT_FOUND:
                             System.out.println("Invalid item " + userChoice);
                             break;
 
                     }
-                } // TODO: create eat function in Player
+                }
 
                 case "look" -> {
                     System.out.println("you are at a " + adventure.getPlayer().getCurrentRoom().getName() + ". " + adventure.getPlayer().getCurrentRoom().getDescription()+"\n");

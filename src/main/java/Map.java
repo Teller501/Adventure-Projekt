@@ -43,13 +43,13 @@ public class Map {
         room2.setWest(room1);
         room2.setEast(room3);
         room2.createItem("knife", "behind the counter.. looks very dull.");
-        room2.createFood("chocolate bar", "on the floor besides the spilled milk. might be bad for you..",-8);
+        room2.createFood("chocolate", "on the floor besides the spilled milk. might be bad for you..",-8);
         room2.createFood("beer", "in the cooling section. will it still get you drunk?", -12);
 
         // Room3
         room3.setWest(room2);
         room3.setSouth(room6);
-        room4.createItem("machette", "shining in the water by the fountain. looks sharp enough..");
+        room3.createItem("machette", "shining in the water by the fountain. looks sharp enough..");
 
         // Room4
         room4.setNorth(room1);
@@ -62,8 +62,7 @@ public class Map {
         // Room6
         room6.setNorth(room3);
         room6.setSouth(room9);
-        room6.createFood("blueberries", "at the bush, there is some fresh blueberries.", 5); // Test Items
-        room6.createItem("test 2", "test 2"); // Test Items
+        room6.createFood("blueberries", "at the bush, those look fresh..", 5); // Test Items
 
         // Room 7
         room7.setNorth(room4);
