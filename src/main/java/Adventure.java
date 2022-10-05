@@ -23,4 +23,9 @@ public class Adventure {
     public boolean go(String direction){
         return player.move(direction);
     }
+
+    public ReturnMessage playerEat(String itemName){
+        return player.eatFood(itemName);
+    }
+
 }

@@ -37,17 +37,17 @@ public class UserInterface {
         while(!input.equals("exit")){
             input = keyb.nextLine().toLowerCase();
             String[] inputSplit = input.split(" ");
-            String direction = "";
+            String userChoice = "";
             String command = inputSplit[0];
 
             if (inputSplit.length > 1){
-                direction = inputSplit[1];
+                userChoice = inputSplit[1];
             }
 
             switch(command){
                 case "go" -> { // Case for going north
-                    if (adventure.go(direction)){
-                        System.out.println("going " + direction);
+                    if (adventure.go(userChoice)){
+                        System.out.println("going " + userChoice);
                     }else{
                         System.out.println("you cannot go that way");
                     }
@@ -56,7 +56,7 @@ public class UserInterface {
 
                 // take method, that first removes the item from the room, then adds it to player inventory
                 case "take" -> {
-                    Item itemPickedUp = adventure.getPlayer().getCurrentRoom().removeItem(direction);
+                    Item itemPickedUp = adventure.getPlayer().getCurrentRoom().removeItem(userChoice);
                     if (itemPickedUp == null){
                         System.out.println("no such item..");
                     } else {
@@ -67,7 +67,7 @@ public class UserInterface {
 
                 // method for dropping the item, adding the item to the current room
                 case "drop" -> {
-                    Item itemDropped = adventure.getPlayer().removeItem(direction);
+                    Item itemDropped = adventure.getPlayer().removeItem(userChoice);
                     if (itemDropped == null){
                         System.out.println("no such item...");
                     } else {
@@ -92,7 +92,21 @@ public class UserInterface {
                     System.out.println("you currently have " + adventure.getPlayer().getHealth() + " hp");
                 }
 
-                case "eat" ->{} // TODO: create eat function in Player
+                case "eat" ->{
+                    ReturnMessage result = adventure.playerEat(userChoice);
+                    switch(result){
+                        case OK:
+                            System.out.println("Player has eaten " + userChoice);
+                            break;
+                        case CANT:
+                            System.out.println("This item cannot be eaten " + userChoice);
+                            break;
+                        case NOT_FOUND:
+                            System.out.println("Invalid item " + userChoice);
+                            break;
+
+                    }
+                } // TODO: create eat function in Player
 
                 case "look" -> {
                     System.out.println("you are at a " + adventure.getPlayer().getCurrentRoom().getName() + ". " + adventure.getPlayer().getCurrentRoom().getDescription()+"\n");

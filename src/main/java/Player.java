@@ -7,11 +7,6 @@ public class Player {
     private double health;
     private final double maxHealth = 50;
 
-    private enum doWithFood {
-        EAT,
-        NOT_EAT,
-        NOT_FOUND
-    }
 
     public Player(double health) {
         this.health = health;
@@ -71,16 +66,16 @@ public class Player {
     }
 
     // Method for eating food
-    public doWithFood eatFood(String itemName) {
+    public ReturnMessage eatFood(String itemName) {
         Item item = findItem(itemName);
             if (item instanceof Food) {
                     health += ((Food) item).getHealthPoints();
-                    return doWithFood.EAT; // eatable
+                    return ReturnMessage.OK; // eatable
                 } else {
                 if (item!=null){
-                    return doWithFood.NOT_EAT; // not eatable
+                    return ReturnMessage.CANT; // not eatable
                 }
-                return doWithFood.NOT_FOUND; // not found
+                return ReturnMessage.NOT_FOUND; // not found
             }
     }
 
