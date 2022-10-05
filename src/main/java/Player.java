@@ -5,7 +5,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
     private double health;
-    private final double maxHealth = 50;
+    private final double maxHealth = 100;
 
     public Player(double health){
         this.health = health;
@@ -62,5 +62,8 @@ public class Player {
         }
         return null;
     }
+
+    // Method for eating food
+
 
 }
