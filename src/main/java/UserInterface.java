@@ -96,6 +96,8 @@ public class UserInterface {
 
                 case "look" -> {
                     System.out.println("you are at a " + adventure.getPlayer().getCurrentRoom().getName() + ". " + adventure.getPlayer().getCurrentRoom().getDescription()+"\n");
+
+                    // Printing out items in the current room if arraylist is not empty
                     if (!adventure.getPlayer().getCurrentRoom().getRoomItems().isEmpty()){
                         for (Item item : adventure.getPlayer().getCurrentRoom().getRoomItems()){
                             System.out.println("there is " + item.getName() + " " + item.getDescription()+"\n");
