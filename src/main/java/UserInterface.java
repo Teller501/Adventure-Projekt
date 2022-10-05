@@ -45,34 +45,14 @@ public class UserInterface {
 
             switch(command){
                 // TODO: fix input when typing 'go direction'
-                case "go north", "n" -> { // Case for going north
-                    if (adventure.go("n")){
-                        System.out.println("going north");
+                case "go" -> { // Case for going north
+                    if (adventure.go(direction)){
+                        System.out.println("going " + direction);
                     }else{
                         System.out.println("you cannot go that way");
                     }
                 }
-                case "go south", "s" -> {
-                    if (adventure.go("s")){ // Case for going south
-                        System.out.println("going south");
-                    }else{
-                        System.out.println("you cannot go that way");
-                    }
-                }
-                case "go east","e" -> { // Case for going east
-                    if (adventure.go("e")){
-                        System.out.println("going east");
-                    }else{
-                        System.out.println("you cannot go that way");
-                    }
-                }
-                case "go west","w" -> { // Case for going west
-                    if (adventure.go("w")){
-                        System.out.println("going west");
-                    }else{
-                        System.out.println("you cannot go that way");
-                    }
-                }
+
 
                 // take method, that first removes the item from the room, then adds it to player inventory
                 case "take" -> {
@@ -99,7 +79,7 @@ public class UserInterface {
                 // method for printing players current items they are holding
                 case "inventory", "inv" -> {
                     if (adventure.getPlayer().getPlayerInventory().isEmpty()){
-                        System.out.println("you are currenlty holding nothing...");
+                        System.out.println("you are currently holding nothing...");
                     }else{
                         System.out.println("you are currently holding " + adventure.getPlayer().getPlayerInventory());
                     }
@@ -134,6 +114,7 @@ public class UserInterface {
                             type 'go west' to go west
                             
                             type 'look' to get a description of your sorroundings
+                            type 'health' to see how much health you currently have
                             type 'help' to display commands
                             type 'exit' to exit game
                             """);
