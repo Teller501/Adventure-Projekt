@@ -11,12 +11,12 @@ public class Map {
                         "you are the only one around, everything is deserted.");
         Room room2 = new Room("abandoned storefront",
                 "there are broken bottles everywhere, " +
-                        "but there is some chocolate bars and milk on the ground.");
+                        "but it looks like something can still be scavenged..");
         Room room3 = new Room("garden outside the store",
-                "you are at the garden outside the store, there is an old fountain," +
+                "there is an old fountain," +
                         " it seems like there is something in the muddy water..");
         Room room4 = new Room("road",
-                "the road continues. No sign of life, but at the side of the road, you discover a dead person" +
+                "the road continues. no sign of life, but at the side of the road, you discover a dead person" +
                         " you walk closer to it and see that it is a dead person, who has been laying" +
                         " there for some time now and has a picture of his family");
         Room room5 = new Room("cellar in hotel",
@@ -33,7 +33,7 @@ public class Map {
         Room room8 = new Room("hotel lobby",
                 "the lobby looks very cozy, with sofas and an old bar. ");
         Room room9 = new Room("tunnel in the well",
-                "");
+                "there is very dark down here, but a little light at the end points to a staircase. somethings else is shining down here..");
 
         // Setting directions for each room
         room1.setEast(room2);
@@ -42,18 +42,18 @@ public class Map {
         // Room2
         room2.setWest(room1);
         room2.setEast(room3);
-        room2.createItem("knife", "sharp knife");
-        room2.createFood("chocolate", "delicious milk chocolate, might be bad for you..",-8);
-        room2.createFood("beer", "it's not very cold, looks old..", -12);
+        room2.createItem("knife", "behind the counter.. looks very dull.");
+        room2.createFood("chocolate bar", "on the floor besides the spilled milk. might be bad for you..",-8);
+        room2.createFood("beer", "in the cooling section. will it still get you drunk?", -12);
 
         // Room3
         room3.setWest(room2);
         room3.setSouth(room6);
+        room4.createItem("machette", "shining in the water by the fountain. looks sharp enough..");
 
         // Room4
         room4.setNorth(room1);
         room4.setSouth(room7);
-        room4.createItem("knife", "small sharp knife");
 
         // Room5
         room5.setSouth(room8);
@@ -62,7 +62,7 @@ public class Map {
         // Room6
         room6.setNorth(room3);
         room6.setSouth(room9);
-        room6.createItem("test", "test "); // Test Items
+        room6.createFood("blueberries", "at the bush, there is some fresh blueberries.", 5); // Test Items
         room6.createItem("test 2", "test 2"); // Test Items
 
         // Room 7

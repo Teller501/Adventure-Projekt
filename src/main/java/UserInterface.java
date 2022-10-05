@@ -23,6 +23,7 @@ public class UserInterface {
                 you look around.
                 
                 
+                type 'look' to look around
                 type 'help' for a list of commands to start
                 """);
 
@@ -44,7 +45,6 @@ public class UserInterface {
             }
 
             switch(command){
-                // TODO: fix input when typing 'go direction'
                 case "go" -> { // Case for going north
                     if (adventure.go(direction)){
                         System.out.println("going " + direction);
@@ -94,8 +94,14 @@ public class UserInterface {
 
                 case "eat" ->{} // TODO: create eat function in Player
 
-                case "look" -> System.out.println(adventure.getCurrentRoom().getName() // TODO: write a better look case
-                        + " " + adventure.getPlayer().getCurrentRoom().getRoomItems());
+                case "look" -> {
+                    System.out.println("you are at a " + adventure.getPlayer().getCurrentRoom().getName() + ". " + adventure.getPlayer().getCurrentRoom().getDescription()+"\n");
+                    if (!adventure.getPlayer().getCurrentRoom().getRoomItems().isEmpty()){
+                        for (Item item : adventure.getPlayer().getCurrentRoom().getRoomItems()){
+                            System.out.println("there is " + item.getName() + " " + item.getDescription()+"\n");
+                        }
+                    }
+                }
 
                 case "help" -> showHelp(); // Showing list of commands
                 case "exit" -> {
@@ -111,10 +117,10 @@ public class UserInterface {
 
     public void showHelp(){
         System.out.println("""
-                            type 'go north' or 'n' to go north
-                            type 'go south' or 's' to go south
-                            type 'go east' or 'e' to go east
-                            type 'go west' or 'w' to go west
+                            type 'go north' or 'go n' to go north
+                            type 'go south' or 'go s' to go south
+                            type 'go east' or 'go e' to go east
+                            type 'go west' or 'go w' to go west
                             
                             type 'take itemname' to pickup item
                             type 'drop itemname' to drop item

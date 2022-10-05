@@ -7,6 +7,11 @@ public class Player {
     private double health;
     private final double maxHealth = 100;
 
+    private enum status{
+        HEALTHY,
+        UNHEALTHY,
+        NOT_EATABLE
+    }
     public Player(double health){
         this.health = health;
     }
@@ -64,6 +69,9 @@ public class Player {
     }
 
     // Method for eating food
+
+
+
 
 
 }
