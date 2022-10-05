@@ -7,6 +7,12 @@ public class Player {
     private double health;
     private final double maxHealth = 50;
 
+    private enum doWithFood {
+        EAT,
+        NOT_EAT,
+        NOT_FOUND
+    }
+
     public Player(double health) {
         this.health = health;
     }
@@ -65,21 +71,35 @@ public class Player {
     }
 
     // Method for eating food
-    public boolean eatingFood(String itemName) {
-        for (Item item : playerInventory) {
+    public doWithFood eatFood(String itemName) {
+        Item item = findItem(itemName);
             if (item instanceof Food) {
-                if (item.getName().equals(itemName)) {
                     health += ((Food) item).getHealthPoints();
-                    return true;
+                    return doWithFood.EAT; // eatable
+                } else {
+                if (item!=null){
+                    return doWithFood.NOT_EAT; // not eatable
                 }
-
+                return doWithFood.NOT_FOUND; // not found
             }
-
-        } return false;
     }
 
     // Method for finding an item and returning that item
+    public Item findItem(String name) {
+        for (Item item : playerInventory) {
+                if (item.getName().equals(name)) {
+                    playerInventory.add(item);
+                    return item;
+                }
+        } return null;
+    }
 }
+
+
+
+
+
+
 
 
 
