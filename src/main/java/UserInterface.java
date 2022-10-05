@@ -131,7 +131,6 @@ public class UserInterface {
                             type 'look' to get a description of your sorroundings
                             type 'health' to see how much health you currently have
                             type 'help' to display commands
-                            type 'health' or 'hp' to display your health
                             type 'exit' to exit game
                             """);
     }
