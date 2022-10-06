@@ -95,16 +95,12 @@ public class UserInterface {
                 case "eat" ->{
                     ReturnMessage result = adventure.playerEat(userChoice);
                     switch(result){
-                        case OK:
+                        case OK -> {
                             System.out.println("you eat " + userChoice);
                             System.out.println("your health is now at " + adventure.getPlayer().getHealth());
-                            break;
-                        case CANT:
-                            System.out.println(userChoice + " cannot be eaten ");
-                            break;
-                        case NOT_FOUND:
-                            System.out.println("Invalid item " + userChoice);
-                            break;
+                        }
+                        case CANT -> System.out.println(userChoice + " cannot be eaten ");
+                        case NOT_FOUND -> System.out.println("Invalid item " + userChoice);
 
                     }
                 }
