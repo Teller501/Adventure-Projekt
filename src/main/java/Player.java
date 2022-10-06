@@ -70,6 +70,7 @@ public class Player {
         Item item = findItem(itemName);
             if (item instanceof Food) {
                     health += ((Food) item).getHealthPoints();
+                    removeItem(itemName);
                     return ReturnMessage.OK; // eatable
                 } else {
                 if (item!=null){
@@ -83,7 +84,6 @@ public class Player {
     public Item findItem(String name) {
         for (Item item : playerInventory) {
                 if (item.getName().equals(name)) {
-                    playerInventory.add(item);
                     return item;
                 }
         } return null;
