@@ -120,6 +120,10 @@ public class UserInterface {
                     }
                 }
 
+                case "attack" -> {
+                    //TODO: Create attack
+                }
+
                 case "look" -> {
                     System.out.println("you are at a " + adventure.getPlayer().getCurrentRoom().getName() + ". " + adventure.getPlayer().getCurrentRoom().getDescription()+"\n");
 

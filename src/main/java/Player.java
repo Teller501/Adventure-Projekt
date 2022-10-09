@@ -106,6 +106,11 @@ public class Player {
     public ArrayList<Item> getEquippedWeapon() {
         return equippedWeapon;
     }
+
+    public void attack(){
+        //TODO: create attack command
+    }
+
 }
 
 
