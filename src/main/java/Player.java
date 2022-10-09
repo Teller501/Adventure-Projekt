@@ -4,6 +4,7 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
+    private ArrayList<Item> equippedWeapon = new ArrayList<>();
     private double health;
     private final double maxHealth = 50;
 
@@ -87,6 +88,23 @@ public class Player {
                     return item;
                 }
         } return null;
+    }
+
+    public ReturnMessage equipWeapon(String itemName) {
+        Item item = findItem(itemName);
+        if (item instanceof Weapon) {
+            equippedWeapon.add(item);
+            return ReturnMessage.OK; // eatable
+        } else {
+            if (item!=null){
+                return ReturnMessage.CANT; // not eatable
+            }
+            return ReturnMessage.NOT_FOUND; // not found
+        }
+    }
+
+    public ArrayList<Item> getEquippedWeapon() {
+        return equippedWeapon;
     }
 }
 

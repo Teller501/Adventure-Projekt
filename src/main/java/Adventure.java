@@ -28,4 +28,8 @@ public class Adventure {
         return player.eatFood(itemName);
     }
 
+    public ReturnMessage equip(String itemName){
+        return player.equipWeapon(itemName);
+    }
+
 }

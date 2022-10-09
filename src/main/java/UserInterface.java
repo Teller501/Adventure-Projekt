@@ -86,6 +86,12 @@ public class UserInterface {
                             System.out.println(item.getName() + ", " + item.getDescription());
                         }
                     }
+
+                    if(adventure.getPlayer().getEquippedWeapon().isEmpty()){
+                        System.out.println("you are currently not holding a weapon");
+                    }else{
+                        System.out.println(adventure.getPlayer().getEquippedWeapon() + " is equipped");
+                    }
                 }
 
                 case "health", "hp" -> {
@@ -102,6 +108,15 @@ public class UserInterface {
                         case CANT -> System.out.println(userChoice + " cannot be eaten ");
                         case NOT_FOUND -> System.out.println("Invalid item " + userChoice);
 
+                    }
+                }
+
+                case "equip" -> {
+                    ReturnMessage result = adventure.equip(userChoice);
+                    switch (result){
+                        case OK-> System.out.println("you equipped " + userChoice);
+                        case CANT -> System.out.println(userChoice + " cannot be equipped.");
+                        case NOT_FOUND -> System.out.println(userChoice + " is an invalid item or is not in inventory");
                     }
                 }
 

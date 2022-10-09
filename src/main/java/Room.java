@@ -62,6 +62,16 @@ public class Room {
         addItem(food);
     }
 
+    public void createMeleeWeapon(String name, String description, int damage){
+        MeleeWeapon meleeWeapon = new MeleeWeapon(name,description,damage);
+        addItem(meleeWeapon);
+    }
+
+    public void createRangeWeapon(String name, String description, int damage, int ammo){
+        RangedWeapon rangedWeapon = new RangedWeapon(name,description,damage,ammo);
+        addItem(rangedWeapon);
+    }
+
 
     public void addItem(Item item){
         roomItems.add(item);

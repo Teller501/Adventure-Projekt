@@ -42,14 +42,14 @@ public class Map {
         // Room2
         room2.setWest(room1);
         room2.setEast(room3);
-        room2.createItem("knife", "behind the counter.. looks very dull.");
+        room2.createMeleeWeapon("knife", "behind the counter.. looks very dull.",2);
         room2.createFood("chocolate", "on the floor besides the spilled milk. might be bad for you..",-8);
         room2.createFood("beer", "in the cooling section. will it still get you drunk?", -12);
 
         // Room3
         room3.setWest(room2);
         room3.setSouth(room6);
-        room3.createItem("machette", "shining in the water by the fountain. looks sharp enough..");
+        room3.createMeleeWeapon("machette", "shining in the water by the fountain. looks sharp enough..",2);
 
         // Room4
         room4.setNorth(room1);
