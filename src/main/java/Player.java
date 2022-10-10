@@ -4,7 +4,7 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
-    private ArrayList<Item> equippedWeapon = new ArrayList<>();
+    private Weapon equippedWeapon;
     private double health;
     private final double maxHealth = 50;
 
@@ -93,7 +93,7 @@ public class Player {
     public ReturnMessage equipWeapon(String itemName) {
         Item item = findItem(itemName);
         if (item instanceof Weapon) {
-            equippedWeapon.add(item);
+            equippedWeapon = (Weapon) item;
             return ReturnMessage.OK; // eatable
         } else {
             if (item!=null){
@@ -103,22 +103,44 @@ public class Player {
         }
     }
 
-    public ArrayList<Item> getEquippedWeapon() {
+    public Weapon getEquippedWeapon() {
         return equippedWeapon;
     }
 
-    public ReturnMessage attack(String itemName){
-        //TODO: create attack command
-        Item item = findItem(itemName);
+    public AttackStatus attackCommand(String enemyName){
 
-        if (item instanceof Weapon){
-            return ReturnMessage.OK;
-        }else if (item!=null){
-            return ReturnMessage.CANT;
-        }else {
-            return ReturnMessage.NOT_FOUND;
+        Enemy selectedEnemy;
+
+        if (getEquippedWeapon() == null){
+            return AttackStatus.NO_WEAPON;
+        }else{
+            if (getEquippedWeapon().canUse()){
+                if (!currentRoom.getEnemies().isEmpty()){
+                    // TODO: Select enemy
+                    for (Enemy enemy : currentRoom.getEnemies()){
+                        if (enemyName.equals(enemy)){
+                            selectedEnemy = enemy;
+                            attack(selectedEnemy);
+                            return AttackStatus.ATTACKED;
+                        }else {
+                            return AttackStatus.NO_SUCH_ENEMY;
+                        }
+                    }
+                }else {
+                    return AttackStatus.NO_ENEMY;
+                }
+            }else {
+                return AttackStatus.NO_USEABLE_WEAPON;
+            }
         }
+
+        return null;
     }
+
+    public void attack(Enemy enemy){
+
+    }
+
 
 }
 

@@ -18,6 +18,10 @@ public abstract class Weapon extends Item{
 
     public abstract int getRemainingAmmo();
 
+    public boolean canUse(){
+        return true;
+    }
+
 
 
 }

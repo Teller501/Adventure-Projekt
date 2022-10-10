@@ -11,4 +11,13 @@ public class RangedWeapon extends Weapon{
     public int getRemainingAmmo() {
         return ammo;
     }
+
+    @Override
+    public boolean canUse() {
+        if (ammo == 0){
+            return false;
+        }else{
+            return false;
+        }
+    }
 }

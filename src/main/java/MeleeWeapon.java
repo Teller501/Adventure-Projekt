@@ -7,4 +7,5 @@ public class MeleeWeapon extends Weapon{
     public int getRemainingAmmo() {
         return 0;
     }
+
 }

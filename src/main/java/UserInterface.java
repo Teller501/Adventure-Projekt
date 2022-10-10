@@ -87,10 +87,10 @@ public class UserInterface {
                         }
                     }
 
-                    if(adventure.getPlayer().getEquippedWeapon().isEmpty()){
+                    if(adventure.getPlayer().getEquippedWeapon() == null){
                         System.out.println("you are currently not holding a weapon");
                     }else{
-                        System.out.println(adventure.getPlayer().getEquippedWeapon() + " is equipped");
+                        System.out.println(adventure.getPlayer().getEquippedWeapon().getName() + " is equipped");
                     }
                 }
 
