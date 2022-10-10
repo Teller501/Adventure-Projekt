@@ -107,8 +107,17 @@ public class Player {
         return equippedWeapon;
     }
 
-    public void attack(){
+    public ReturnMessage attack(String itemName){
         //TODO: create attack command
+        Item item = findItem(itemName);
+
+        if (item instanceof Weapon){
+            return ReturnMessage.OK;
+        }else if (item!=null){
+            return ReturnMessage.CANT;
+        }else {
+            return ReturnMessage.NOT_FOUND;
+        }
     }
 
 }
