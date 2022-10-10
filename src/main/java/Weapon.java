@@ -1,4 +1,4 @@
-public class Weapon extends Item{
+public abstract class Weapon extends Item{
 
     private int damage;
 
@@ -15,6 +15,8 @@ public class Weapon extends Item{
     public int getDamage() {
         return damage;
     }
+
+    public abstract int getRemainingAmmo();
 
 
 

@@ -6,4 +6,9 @@ public class RangedWeapon extends Weapon{
         super(name, description, damage);
         this.ammo = ammo;
     }
+
+    @Override
+    public int getRemainingAmmo() {
+        return ammo;
+    }
 }
