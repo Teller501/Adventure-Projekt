@@ -6,7 +6,6 @@ public class Player {
     private ArrayList<Item> playerInventory = new ArrayList<>();
     private Weapon equippedWeapon;
     private double health;
-    private final double maxHealth = 50;
 
 
     public Player(double health) {
@@ -118,7 +117,7 @@ public class Player {
                 if (!currentRoom.getEnemies().isEmpty()){
                     // TODO: Select enemy
                     for (Enemy enemy : currentRoom.getEnemies()){
-                        if (enemyName.equals(enemy)){
+                        if (enemyName.equals(enemy.getName())){
                             selectedEnemy = enemy;
                             attack(selectedEnemy);
                             return AttackStatus.ATTACKED;
@@ -138,6 +137,14 @@ public class Player {
     }
 
     public void attack(Enemy enemy){
+
+        if (enemy.getHealthPoints() > 0 && health > 0){
+            int damageDealt = enemy.getHealthPoints() - equippedWeapon.getDamage();
+            enemy.setHealthPoints(damageDealt);
+            equippedWeapon.setAmmo(equippedWeapon.getRemainingAmmo()-1);
+
+            health -= enemy.getWeapon().getDamage();
+        }
 
     }
 

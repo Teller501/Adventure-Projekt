@@ -32,4 +32,7 @@ public class Adventure {
         return player.equipWeapon(itemName);
     }
 
+    public AttackStatus attack(String userChoice) {
+        return player.attackCommand(userChoice);
+    }
 }

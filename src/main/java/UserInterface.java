@@ -121,7 +121,21 @@ public class UserInterface {
                 }
 
                 case "attack" -> {
-                    //TODO: Create attack
+                    AttackStatus result = adventure.attack(userChoice);
+                    switch (result){
+                        case NO_ENEMY -> System.out.println("no enemy in sight..");
+                        case NO_SUCH_ENEMY -> System.out.println("no enemy with that name, check your spelling or go elsewhere!");
+                        case NO_USEABLE_WEAPON -> System.out.println("your weapon is not very useable at the moment..");
+                        case NO_WEAPON -> System.out.println("you are not wielding any weapon...");
+                        case ATTACKED -> {
+                            System.out.println("you attack " + userChoice + " with " + adventure.getPlayer().getEquippedWeapon().getName());
+                            for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
+                                System.out.println(enemy.getName() + " HP: " + enemy.getHealthPoints());
+                            }
+                            System.out.println("you got hit by " + userChoice + "!");
+                            System.out.println("your health is now " + adventure.getPlayer().getHealth());
+                        }
+                    }
                 }
 
                 case "look" -> {
@@ -131,6 +145,12 @@ public class UserInterface {
                     if (!adventure.getPlayer().getCurrentRoom().getRoomItems().isEmpty()){
                         for (Item item : adventure.getPlayer().getCurrentRoom().getRoomItems()){
                             System.out.println("there is " + item.getName() + " " + item.getDescription()+"\n");
+                        }
+                    }
+
+                    if (!adventure.getCurrentRoom().getEnemies().isEmpty()){
+                        for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
+                            System.out.println(enemy.getName() + " is nearby, HP: " + enemy.getHealthPoints());
                         }
                     }
                 }

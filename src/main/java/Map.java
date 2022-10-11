@@ -42,9 +42,13 @@ public class Map {
         // Room2
         room2.setWest(room1);
         room2.setEast(room3);
-        room2.createMeleeWeapon("knife", "behind the counter.. looks very dull.",2);
+        room2.createMeleeWeapon("knife", "behind the counter.. looks very dull.",5);
         room2.createFood("chocolate", "on the floor besides the spilled milk. might be bad for you..",-8);
         room2.createFood("beer", "in the cooling section. will it still get you drunk?", -12);
+        room2.createEnemy("test", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 100, new MeleeWeapon("Durum", "Slasket durum, ekstra dres og kød", 3)); // TEST
+        room2.createEnemy("test2", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 75, new MeleeWeapon("Durum", "Slasket durum, ekstra dres og kød", 3)); // TEST
+        room2.createRangeWeapon("gun", "grim gun", 15, 6);
+
 
         // Room3
         room3.setWest(room2);
@@ -57,6 +61,7 @@ public class Map {
 
         // Room5
         room5.setSouth(room8);
+        room5.createEnemy("Kris", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 100, new MeleeWeapon("Durum", "Slasket durum, ekstra dres og kød", 3));
 
 
         // Room6

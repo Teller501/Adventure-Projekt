@@ -8,4 +8,9 @@ public class MeleeWeapon extends Weapon{
         return 0;
     }
 
+    @Override
+    public void setAmmo(int ammo) {
+        ammo = 0;
+    }
+
 }
