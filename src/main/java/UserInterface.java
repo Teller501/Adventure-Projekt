@@ -83,7 +83,7 @@ public class UserInterface {
                     }else{
                         System.out.println("you are currently holding: ");
                         for (Item item : adventure.getPlayer().getPlayerInventory()){
-                            System.out.println(item.getName() + ", " + item.getDescription());
+                            System.out.println(item.getName());
                         }
                     }
 

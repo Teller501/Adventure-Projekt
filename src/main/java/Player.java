@@ -144,6 +144,11 @@ public class Player {
             equippedWeapon.setAmmo(equippedWeapon.getRemainingAmmo()-1);
 
             health -= enemy.getWeapon().getDamage();
+
+            if (enemy.getHealthPoints() <= 0){
+                currentRoom.addItem(enemy.getWeapon());
+                currentRoom.removeEnemy(enemy);
+            }
         }
 
     }
