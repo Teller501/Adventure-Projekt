@@ -137,22 +137,28 @@ public class Player {
     }
 
     public void attack(Enemy enemy){
-
-        if (enemy.getHealthPoints() > 0 && health > 0){
-            int damageDealt = enemy.getHealthPoints() - equippedWeapon.getDamage();
-            enemy.setHealthPoints(damageDealt);
-            equippedWeapon.setAmmo(equippedWeapon.getRemainingAmmo()-1);
-
-            health -= enemy.getWeapon().getDamage();
-
-            if (enemy.getHealthPoints() <= 0){
-                currentRoom.addItem(enemy.getWeapon());
-                currentRoom.removeEnemy(enemy);
-            }
-        }
-
+        dealDamage(enemy);
+        getHit(enemy);
+        enemy.isDead();
     }
 
+    private void getHit(Enemy enemy) {
+        health -= enemy.getWeapon().getDamage();
+    }
+
+    private void dealDamage(Enemy enemy) {
+        int damageDealt = enemy.getHealthPoints() - equippedWeapon.getDamage();
+        enemy.hit(damageDealt);
+        equippedWeapon.setAmmo(equippedWeapon.getRemainingAmmo()-1);
+    }
+
+    public boolean isDead(){
+        if (health <= 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
 

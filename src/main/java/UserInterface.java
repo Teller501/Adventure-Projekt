@@ -128,12 +128,17 @@ public class UserInterface {
                         case NO_USEABLE_WEAPON -> System.out.println("your weapon is not very useable at the moment..");
                         case NO_WEAPON -> System.out.println("you are not wielding any weapon...");
                         case ATTACKED -> {
-                            System.out.println("you attack " + userChoice + " with " + adventure.getPlayer().getEquippedWeapon().getName());
-                            for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
-                                System.out.println(enemy.getName() + " HP: " + enemy.getHealthPoints());
+                            if (!adventure.getPlayer().isDead()) {
+                                System.out.println("you attack " + userChoice + " with " + adventure.getPlayer().getEquippedWeapon().getName());
+                                for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
+                                    System.out.println(enemy.getName() + " HP: " + enemy.getHealthPoints());
+                                }
+                                System.out.println("you got hit by " + userChoice + "!");
+                                System.out.println("your health is now " + adventure.getPlayer().getHealth());
+                            }else{
+                                System.out.println("you are dead, goodbye!!!");
+                                System.exit(1);
                             }
-                            System.out.println("you got hit by " + userChoice + "!");
-                            System.out.println("your health is now " + adventure.getPlayer().getHealth());
                         }
                     }
                 }
