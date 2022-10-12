@@ -133,7 +133,18 @@ public class UserInterface {
                     switch (result){
                         case NO_ENEMY -> System.out.println("no enemy in sight..");
                         case NO_SUCH_ENEMY -> {
-                            System.out.println("no enemy with that name, so you attack the nearest enemy");
+                            Enemy nearestEnemy = adventure.getCurrentRoom().getEnemies().get(0);
+                            if (!adventure.getPlayer().isDead()) {
+                                System.out.println(unBold + "you attack " + bold + nearestEnemy.getName() + unBold + " with " + bold + adventure.getPlayer().getEquippedWeapon().getName());
+                                for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
+                                    System.out.println(bold + enemy.getName() + unBold + " HP: " + bold + enemy.getHealthPoints());
+                                }
+                                System.out.println("you got hit by " + bold + nearestEnemy.getName() + unBold + "!");
+                                System.out.println("your health is now " + bold + adventure.getPlayer().getHealth() + unBold + " HP");
+                            }else{
+                                System.out.println("you are dead, goodbye!!!");
+                                System.exit(1);
+                            }
                         }
                         case NO_USEABLE_WEAPON -> System.out.println("your weapon is not very useable at the moment..");
                         case NO_WEAPON -> System.out.println("you are not wielding any weapon...");
@@ -165,7 +176,7 @@ public class UserInterface {
 
                     if (!adventure.getCurrentRoom().getEnemies().isEmpty()){
                         for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
-                            System.out.println(bold + enemy.getName() + unBold + "is nearby, HP: " + bold + enemy.getHealthPoints());
+                            System.out.println(bold + enemy.getName() + unBold + " is nearby, HP: " + bold + enemy.getHealthPoints());
                         }
                     }
                 }
