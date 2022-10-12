@@ -156,7 +156,7 @@ public class Player {
 
 
     public boolean isDead(){
-        if (health <= 0){
+        if (health <= 0.0){
             return true;
         }else{
             return false;

@@ -9,6 +9,4 @@ public class Food extends Item{
     public double getHealthPoints(){
         return healthPoints;
     }
-
-
 }

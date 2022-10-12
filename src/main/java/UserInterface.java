@@ -112,6 +112,10 @@ public class UserInterface {
                         case OK -> {
                             System.out.println("you eat " + bold + userChoice);
                             System.out.println("your health is now at " + bold + adventure.getPlayer().getHealth());
+                            if (adventure.getPlayer().isDead()){
+                                System.out.println("you died, try again!!");
+                                System.exit(1);
+                            }
                         }
                         case CANT -> System.out.println(userChoice + " cannot be eaten ");
                         case NOT_FOUND -> System.out.println("Invalid item " + userChoice);

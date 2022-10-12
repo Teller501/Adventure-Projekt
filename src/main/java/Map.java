@@ -38,7 +38,6 @@ public class Map {
         // Setting directions for each room
         room1.setEast(room2);
         room1.setSouth(room4);
-        room1.createRangeWeapon("klam", "fede", 30, 90);
 
         // Room2
         room2.setWest(room1);
@@ -46,27 +45,30 @@ public class Map {
         room2.createMeleeWeapon("hobbyknife", "used to cut up boxes and other useful stuff", 2);
         room2.createFood("chocolate", "on the floor besides the spilled milk. might be bad for you..",-8);
         room2.createFood("beer", "in the cooling section. will it still get you drunk?", -12);
-        room2.createEnemy("Ali", "behind the counter, with a snus in the upper lip.", 35, new RangedWeapon("Deagle", "enormous gun that deals heavy damage", 5, 6), room2);
+        room2.createEnemy("Ali", "behind the counter, with a snus in the upper lip.", 25, new RangedWeapon("Deagle", "enormous gun that deals heavy damage", 5, 6), room2);
 
 
         // Room3
         room3.setWest(room2);
         room3.setSouth(room6);
-        room3.createMeleeWeapon("machette", "shining in the water by the fountain. looks sharp enough..",2);
+        room3.createMeleeWeapon("machette", "shining in the water by the fountain. looks sharp enough..",4);
 
         // Room4
         room4.setNorth(room1);
         room4.setSouth(room7);
+        room4.createFood("snus", "on the road beside the not so lively roadman, looks used..", 2);
 
         // Room5
         room5.setSouth(room8);
-        room5.createEnemy("Kris", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 100, new MeleeWeapon("Durum", "Slasket durum, ekstra dres og kød", 3), room5);
+        room5.createEnemy("Kris", "getting a haircut, whilst eating a durum that he wields as a weapon once you approach..", 100, new MeleeWeapon("Durum", "Slasket durum, ekstra dres og kød", 3), room5);
 
 
         // Room6
         room6.setNorth(room3);
         room6.setSouth(room9);
-        room6.createFood("blueberries", "at the bush, those look fresh..", 5); // Test Items
+        room6.createFood("blueberries", "at the bush, those look fresh..", 5);
+        room6.createFood("cranberries", "at another bush, nice color..", 8);
+        room6.createFood("mushrooms", "growing on the ground, are they good for you?", -100);
 
         // Room 7
         room7.setNorth(room4);
@@ -76,10 +78,14 @@ public class Map {
         room8.setWest(room7);
         room8.setNorth(room5);
         room8.setEast(room9);
+        room8.createFood("chips", "on one of tables in the lobby, that'll do..",8);
+        room8.createFood("vodka", "behind the bar, a whole bottle!",-5);
 
         // Room 9
         room9.setWest(room8);
         room9.setNorth(room6);
+        room9.createEnemy("rat", "rabid rat in the well, oh well..", 12, new MeleeWeapon("claws", "the rats claws..", 3 ), room9);
+        room9.createRangeWeapon("slingshot", "in the mud in the well, could play useful...", 3, 9);
 
         // Setting starterRoom to room1 at the start
         starterRoom = room1;
