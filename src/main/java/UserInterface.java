@@ -133,14 +133,19 @@ public class UserInterface {
                     switch (result){
                         case NO_ENEMY -> System.out.println("no enemy in sight..");
                         case NO_SUCH_ENEMY -> {
-                            Enemy nearestEnemy = adventure.getCurrentRoom().getEnemies().get(0);
+                            Enemy nearestEnemy = null;
+                            if (!adventure.getCurrentRoom().getEnemies().isEmpty()){
+                                nearestEnemy = adventure.getCurrentRoom().getEnemies().get(0);
+                            }
                             if (!adventure.getPlayer().isDead()) {
-                                System.out.println(unBold + "you attack " + bold + nearestEnemy.getName() + unBold + " with " + bold + adventure.getPlayer().getEquippedWeapon().getName());
-                                for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
-                                    System.out.println(bold + enemy.getName() + unBold + " HP: " + bold + enemy.getHealthPoints());
+                                if (!adventure.getCurrentRoom().getEnemies().isEmpty()){
+                                    System.out.println(unBold + "you attack " + bold + nearestEnemy.getName() + unBold + " with " + bold + adventure.getPlayer().getEquippedWeapon().getName());
+                                    for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
+                                        System.out.println(bold + enemy.getName() + unBold + " HP: " + bold + enemy.getHealthPoints());
+                                    }
+                                    System.out.println("you got hit by " + bold + nearestEnemy.getName() + unBold + "!");
+                                    System.out.println("your health is now " + bold + adventure.getPlayer().getHealth() + unBold + " HP");
                                 }
-                                System.out.println("you got hit by " + bold + nearestEnemy.getName() + unBold + "!");
-                                System.out.println("your health is now " + bold + adventure.getPlayer().getHealth() + unBold + " HP");
                             }else{
                                 System.out.println("you are dead, goodbye!!!");
                                 System.exit(1);
@@ -153,9 +158,11 @@ public class UserInterface {
                                 System.out.println("you attack " + bold + userChoice + unBold + " with " + bold + adventure.getPlayer().getEquippedWeapon().getName());
                                 for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
                                     System.out.println(bold + enemy.getName() + unBold + " HP: " + bold + enemy.getHealthPoints());
+                                    if (!enemy.isDead()){
+                                        System.out.println("you got hit by " + bold + userChoice + unBold + "!");
+                                        System.out.println("your health is now " + bold + adventure.getPlayer().getHealth() + unBold + " HP");
+                                    }
                                 }
-                                System.out.println("you got hit by " + bold + userChoice + unBold + "!");
-                                System.out.println("your health is now " + bold + adventure.getPlayer().getHealth() + unBold + " HP");
                             }else{
                                 System.out.println("you are dead. Try again!");
                                 System.exit(1);
@@ -176,7 +183,7 @@ public class UserInterface {
 
                     if (!adventure.getCurrentRoom().getEnemies().isEmpty()){
                         for (Enemy enemy : adventure.getCurrentRoom().getEnemies()){
-                            System.out.println(bold + enemy.getName() + unBold + " is nearby, HP: " + bold + enemy.getHealthPoints());
+                            System.out.println(bold + enemy.getName() + unBold + " is nearby, " + enemy.getDescription() + " HP: " + bold + enemy.getHealthPoints());
                         }
                     }
                 }

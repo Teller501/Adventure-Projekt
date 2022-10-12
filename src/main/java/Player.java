@@ -114,7 +114,10 @@ public class Player {
     public AttackStatus attackCommand(String enemyName){
 
         Enemy selectedEnemy = null;
-        Enemy nearestEnemy = currentRoom.getEnemies().get(0);
+        Enemy nearestEnemy = null;
+        if (!currentRoom.getEnemies().isEmpty()){
+            nearestEnemy = currentRoom.getEnemies().get(0);
+        }
 
         if (getEquippedWeapon() == null){
             return AttackStatus.NO_WEAPON;
@@ -122,7 +125,7 @@ public class Player {
             if (getEquippedWeapon().canUse()){
                 if (!currentRoom.getEnemies().isEmpty()){
                     for (Enemy enemy : currentRoom.getEnemies()){
-                        if (enemyName.equals(enemy.getName())){
+                        if (enemyName.equalsIgnoreCase(enemy.getName())){
                             selectedEnemy = enemy;
                             attack(selectedEnemy);
                             return AttackStatus.ATTACKED;
@@ -145,8 +148,9 @@ public class Player {
 
     public void attack(Enemy enemy){
         equippedWeapon.attack(enemy, equippedWeapon);
-        enemy.attack(this);
-        enemy.isDead();
+        if (!enemy.isDead()){
+            enemy.attack(this);
+        }
     }
 
 

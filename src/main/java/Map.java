@@ -9,7 +9,7 @@ public class Map {
         Room room1 = new Room("road",
                 "you are on the road outside the city, " +
                         "you are the only one around, everything is deserted.");
-        Room room2 = new Room("abandoned storefront",
+        Room room2 = new Room("abandoned kiosk",
                 "there are broken bottles everywhere, " +
                         "but it looks like something can still be scavenged..");
         Room room3 = new Room("garden outside the store",
@@ -38,16 +38,15 @@ public class Map {
         // Setting directions for each room
         room1.setEast(room2);
         room1.setSouth(room4);
+        room1.createRangeWeapon("klam", "fede", 30, 90);
 
         // Room2
         room2.setWest(room1);
         room2.setEast(room3);
-        room2.createMeleeWeapon("knife", "behind the counter.. looks very dull.",5);
+        room2.createMeleeWeapon("hobbyknife", "used to cut up boxes and other useful stuff", 2);
         room2.createFood("chocolate", "on the floor besides the spilled milk. might be bad for you..",-8);
         room2.createFood("beer", "in the cooling section. will it still get you drunk?", -12);
-        room2.createEnemy("test", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 100, new MeleeWeapon("durum", "med ekstra dres og kød", 3), room2); // TEST
-        room2.createEnemy("test2", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 75, new MeleeWeapon("durum", "Slasket durum, ekstra dres og kød", 3), room2); // TEST
-        room2.createRangeWeapon("gun", "grim gun", 15, 6); // TEST
+        room2.createEnemy("Ali", "behind the counter, with a snus in the upper lip.", 35, new RangedWeapon("Deagle", "enormous gun that deals heavy damage", 5, 6), room2);
 
 
         // Room3
