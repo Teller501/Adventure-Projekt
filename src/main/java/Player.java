@@ -116,7 +116,6 @@ public class Player {
         }else{
             if (getEquippedWeapon().canUse()){
                 if (!currentRoom.getEnemies().isEmpty()){
-                    // TODO: Select enemy
                     for (Enemy enemy : currentRoom.getEnemies()){
                         if (enemyName.equals(enemy.getName())){
                             selectedEnemy = enemy;
