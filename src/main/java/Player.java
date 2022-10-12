@@ -109,6 +109,7 @@ public class Player {
     public AttackStatus attackCommand(String enemyName){
 
         Enemy selectedEnemy;
+        Enemy nearestEnemy = currentRoom.getEnemies().get(0);
 
         if (getEquippedWeapon() == null){
             return AttackStatus.NO_WEAPON;
@@ -122,6 +123,7 @@ public class Player {
                             attack(selectedEnemy);
                             return AttackStatus.ATTACKED;
                         }else {
+                            attack(nearestEnemy);
                             return AttackStatus.NO_SUCH_ENEMY;
                         }
                     }
