@@ -34,6 +34,7 @@ public class Enemy {
         this.healthPoints = newHealth;
     }
 
+
     public boolean isDead(){
         if (healthPoints<=0){
             room.addItem(weapon);
@@ -45,4 +46,14 @@ public class Enemy {
     }
 
 
+
+
+    public void attack(Player player) {
+        player.setHealth(player.getHealth() - weapon.getDamage());
+    }
+
+    public int dealDamage(Weapon weapon) {
+        int damageDealt = healthPoints - weapon.getDamage();
+        return damageDealt;
+    }
 }

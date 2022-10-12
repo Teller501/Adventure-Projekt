@@ -47,7 +47,7 @@ public class Map {
         room2.createFood("beer", "in the cooling section. will it still get you drunk?", -12);
         room2.createEnemy("test", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 100, new MeleeWeapon("durum", "med ekstra dres og kød", 3), room2); // TEST
         room2.createEnemy("test2", "Kris får en haircut mens hans æder en ordentlig durum, som han bruger som våben", 75, new MeleeWeapon("durum", "Slasket durum, ekstra dres og kød", 3), room2); // TEST
-        room2.createRangeWeapon("gun", "grim gun", 15, 6);
+        room2.createRangeWeapon("gun", "grim gun", 15, 6); // TEST
 
 
         // Room3

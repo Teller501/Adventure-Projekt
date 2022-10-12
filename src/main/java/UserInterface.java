@@ -157,7 +157,7 @@ public class UserInterface {
                                 System.out.println("you got hit by " + bold + userChoice + unBold + "!");
                                 System.out.println("your health is now " + bold + adventure.getPlayer().getHealth() + unBold + " HP");
                             }else{
-                                System.out.println("you are dead, goodbye!!!");
+                                System.out.println("you are dead. Try again!");
                                 System.exit(1);
                             }
                         }

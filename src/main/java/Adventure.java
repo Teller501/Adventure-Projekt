@@ -24,14 +24,17 @@ public class Adventure {
         return player.move(direction);
     }
 
+    // Calling eat method from Player class
     public ReturnMessage playerEat(String itemName){
         return player.eatFood(itemName);
     }
 
+    // Calling equip method from Player class
     public ReturnMessage equip(String itemName){
         return player.equipWeapon(itemName);
     }
 
+    // Calling attack method from Player class
     public AttackStatus attack(String userChoice) {
         return player.attackCommand(userChoice);
     }

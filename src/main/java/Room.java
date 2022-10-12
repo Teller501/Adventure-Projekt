@@ -53,22 +53,25 @@ public class Room {
         return eastRoom;
     }
 
-
+    // Method for making food item
     public void createFood(String name, String description, double healthPoints){
         Food food = new Food(name,description,healthPoints);
         addItem(food);
     }
 
+    // Method for creating different kinds of melee weapons
     public void createMeleeWeapon(String name, String description, int damage){
         MeleeWeapon meleeWeapon = new MeleeWeapon(name,description,damage);
         addItem(meleeWeapon);
     }
 
+    // Method for creating ranged weapons
     public void createRangeWeapon(String name, String description, int damage, int ammo){
         RangedWeapon rangedWeapon = new RangedWeapon(name,description,damage,ammo);
         addItem(rangedWeapon);
     }
 
+    // Method for creating enemys
     public void createEnemy(String name, String description, int healthPoints, Weapon weapon, Room room){
         Enemy enemy = new Enemy(name, description, healthPoints, weapon, room);
         addEnemy(enemy);
@@ -91,7 +94,7 @@ public class Room {
         return enemies;
     }
 
-    // method for removing item from room inventory, looping through the roomItems
+    // Mrethod for removing item from room inventory, looping through the roomItems
     public Item removeItem(String name){
         for (Item item : roomItems){
             if (item.getName().equals(name)){

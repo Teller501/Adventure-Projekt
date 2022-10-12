@@ -16,6 +16,10 @@ public class Player {
         return health;
     }
 
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -91,8 +95,8 @@ public class Player {
 
     public ReturnMessage equipWeapon(String itemName) {
         Item item = findItem(itemName);
-        if (item instanceof Weapon) {
-            equippedWeapon = (Weapon) item;
+        if (item instanceof Weapon) { // if the item is of type weapon
+            equippedWeapon = (Weapon) item; // Setting the equippedWeapon attribute to item casted to Weapon
             return ReturnMessage.OK; // eatable
         } else {
             if (item!=null){
@@ -102,6 +106,7 @@ public class Player {
         }
     }
 
+    //Getter for equippedWeapon
     public Weapon getEquippedWeapon() {
         return equippedWeapon;
     }
@@ -139,20 +144,12 @@ public class Player {
     }
 
     public void attack(Enemy enemy){
-        dealDamage(enemy);
-        getHit(enemy);
+        equippedWeapon.attack(enemy, equippedWeapon);
+        enemy.attack(this);
         enemy.isDead();
     }
 
-    private void getHit(Enemy enemy) {
-        health -= enemy.getWeapon().getDamage();
-    }
 
-    private void dealDamage(Enemy enemy) {
-        int damageDealt = enemy.getHealthPoints() - equippedWeapon.getDamage();
-        enemy.hit(damageDealt);
-        equippedWeapon.setAmmo(equippedWeapon.getRemainingAmmo()-1);
-    }
 
     public boolean isDead(){
         if (health <= 0){
